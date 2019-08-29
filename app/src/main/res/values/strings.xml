@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">MadLibs</string>
+    <string name="app_name">More Like Glad Libs</string>
+    <string name="textVerb">Verb</string>
+    <string name="textSelector">Mad lib</string>
+    <string name="textName">Name</string>
+    <string name="textNumber">Number</string>
+    <string name="textAdverb">Adverb</string>
+    <string name="textNoun">Noun</string>
 </resources>
