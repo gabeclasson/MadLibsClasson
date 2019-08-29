@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="titleTextSize">30sp</dimen>
+    <dimen name="textSize">22sp</dimen>
+    <dimen name="textBoxHeight">45dp</dimen>
+    <dimen name="textBoxWidth">212dp</dimen>
+    <dimen name="partOfSpeechPaddingBottom">7dp</dimen>
+    <dimen name="verticalSpacing">25dp</dimen>
+    <dimen name="horizontalSpacing">36dp</dimen>
+    <dimen name="buttonDistanceFromWall">50dp</dimen>
+</resources>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:background="@color/colorBackground"
+    android:textAlignment="center"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textVerb"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginTop="@dimen/verticalSpacing"
+        android:gravity="bottom"
+        android:paddingBottom="@dimen/partOfSpeechPaddingBottom"
+        android:text="Verb"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/textSize"
+        app:layout_constraintEnd_toEndOf="@+id/textName"
+        app:layout_constraintTop_toBottomOf="@+id/textName" />
+
+    <TextView
+        android:id="@+id/textSelector"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginTop="@dimen/verticalSpacing"
+        android:gravity="bottom"
+        android:paddingBottom="@dimen/partOfSpeechPaddingBottom"
+        android:text="Mad lib"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/textSize"
+        app:layout_constraintEnd_toEndOf="@+id/textVerb"
+        app:layout_constraintTop_toBottomOf="@+id/textVerb" />
+
+    <EditText
+        android:id="@+id/editVerb"
+        android:layout_width="@dimen/textBoxWidth"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginStart="@dimen/horizontalSpacing"
+        android:ems="10"
+        android:gravity="bottom"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorText"
+        app:layout_constraintStart_toEndOf="@+id/textVerb"
+        app:layout_constraintTop_toTopOf="@+id/textVerb" />
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="@dimen/textBoxWidth"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginStart="@dimen/horizontalSpacing"
+        android:ems="10"
+        android:gravity="bottom"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorText"
+        app:layout_constraintStart_toEndOf="@+id/textName"
+        app:layout_constraintTop_toTopOf="@+id/textName" />
+
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginTop="@dimen/verticalSpacing"
+        android:gravity="bottom"
+        android:paddingBottom="@dimen/partOfSpeechPaddingBottom"
+        android:text="Name"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/textSize"
+        app:layout_constraintEnd_toEndOf="@+id/textNumber"
+        app:layout_constraintTop_toBottomOf="@+id/textNumber" />
+
+    <TextView
+        android:id="@+id/textNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginTop="@dimen/verticalSpacing"
+        android:gravity="bottom"
+        android:paddingBottom="@dimen/partOfSpeechPaddingBottom"
+        android:text="Number"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/textSize"
+        app:layout_constraintEnd_toEndOf="@+id/textAdverb"
+        app:layout_constraintTop_toBottomOf="@+id/textAdverb" />
+
+    <EditText
+        android:id="@+id/editAdverb"
+        android:layout_width="@dimen/textBoxWidth"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginStart="@dimen/horizontalSpacing"
+        android:ems="10"
+        android:gravity="bottom"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorText"
+        app:layout_constraintStart_toEndOf="@+id/textAdverb"
+        app:layout_constraintTop_toTopOf="@+id/textAdverb" />
+
+    <EditText
+        android:id="@+id/editNumber"
+        android:layout_width="@dimen/textBoxWidth"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginStart="@dimen/horizontalSpacing"
+        android:ems="10"
+        android:gravity="bottom"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorText"
+        app:layout_constraintStart_toEndOf="@+id/textNumber"
+        app:layout_constraintTop_toTopOf="@+id/textNumber" />
+
+    <TextView
+        android:id="@+id/textAdverb"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginTop="@dimen/verticalSpacing"
+        android:gravity="bottom"
+        android:paddingBottom="@dimen/partOfSpeechPaddingBottom"
+        android:text="Adverb"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/textSize"
+        app:layout_constraintEnd_toEndOf="@+id/textAdjective"
+        app:layout_constraintTop_toBottomOf="@+id/textAdjective" />
+
+    <TextView
+        android:id="@+id/textNoun"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="bottom"
+        android:paddingBottom="@dimen/partOfSpeechPaddingBottom"
+        android:text="Noun"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/textSize"
+        app:layout_constraintEnd_toStartOf="@+id/textTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="@dimen/verticalSpacing"
+        android:layout_marginEnd="144dp"
+        android:text="Mad Libs"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/titleTextSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textAdjective"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginTop="@dimen/verticalSpacing"
+        android:gravity="bottom"
+        android:paddingBottom="@dimen/partOfSpeechPaddingBottom"
+        android:text="Adjective"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/textSize"
+        app:layout_constraintEnd_toEndOf="@+id/textNoun"
+        app:layout_constraintTop_toBottomOf="@+id/textNoun" />
+
+    <EditText
+        android:id="@+id/editNoun"
+        android:layout_width="@dimen/textBoxWidth"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginStart="@dimen/horizontalSpacing"
+        android:ems="10"
+        android:gravity="bottom"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorText"
+        app:layout_constraintStart_toEndOf="@+id/textNoun"
+        app:layout_constraintTop_toTopOf="@+id/textNoun" />
+
+    <EditText
+        android:id="@+id/editAdjective"
+        android:layout_width="@dimen/textBoxWidth"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginStart="@dimen/horizontalSpacing"
+        android:ems="10"
+        android:gravity="bottom"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorText"
+        app:layout_constraintStart_toEndOf="@+id/textAdjective"
+        app:layout_constraintTop_toTopOf="@+id/textAdjective" />
+
+    <Spinner
+        android:id="@+id/spinnerSelector"
+        android:layout_width="@dimen/textBoxWidth"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginStart="@dimen/horizontalSpacing"
+        app:layout_constraintStart_toEndOf="@+id/textSelector"
+        app:layout_constraintTop_toTopOf="@+id/textSelector" />
+
+    <Button
+        android:id="@+id/buttonGenerate"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginStart="@dimen/buttonDistanceFromWall"
+        android:layout_marginTop="@dimen/verticalSpacing"
+        android:text="Generate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSelector" />
+
+    <Button
+        android:id="@+id/buttonSurprise"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/textBoxHeight"
+        android:layout_marginEnd="@dimen/buttonDistanceFromWall"
+        android:text="Surprise Me!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonGenerate" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
