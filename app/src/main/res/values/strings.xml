@@ -6,4 +6,9 @@
     <string name="textNumber">Number</string>
     <string name="textAdverb">Adverb</string>
     <string name="textNoun">Noun</string>
+    <string-array name="spinner_elements">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

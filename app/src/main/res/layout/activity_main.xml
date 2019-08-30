@@ -208,6 +208,7 @@
         android:layout_height="@dimen/textBoxHeight"
         android:layout_marginStart="@dimen/buttonDistanceFromWall"
         android:layout_marginTop="@dimen/verticalSpacing"
+        android:onClick="generate"
         android:text="Generate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textSelector" />
