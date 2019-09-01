@@ -1,0 +1,66 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:background="@color/colorBackground"
+    android:textAlignment="center"
+    tools:context=".MadLibDisplay">
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/verticalSpacing"
+        android:layout_marginEnd="0dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/titleTextSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/madLibTitleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/verticalSpacing"
+        android:text="Surprise"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/subtitleTextSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="533dp"
+        android:layout_marginTop="@dimen/verticalSpacing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/madLibTitleView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/madLibTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/buttonDistanceFromWall"
+                android:paddingEnd="@dimen/buttonDistanceFromWall"
+                android:text="Oops"
+                android:textAlignment="center"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/textSize" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

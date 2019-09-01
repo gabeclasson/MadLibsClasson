@@ -12,9 +12,10 @@
         <item>Talent Expose</item>
     </string-array>
     <string-array name="madLibs">
-        <item>Have you ever seen “#name#’s World”? It’s this brand new TV show about a person who loves to #verb#. Oh, #name# loves to #verb# so much that I think it’s almost #adjective#! You can really tell that the producers work #adverb#. I bet they got their inspiration from that show about the #noun# that looks a lot like #name#. Anyway, I don’t think the show make it will make it past #number# episodes, regardless of what the critics say.</item>
+        <item>Have you ever seen “#name#’s World”? It’s this brand new TV show about a person who loves to #verb#. Oh, #name# loves to #verb# so much that I think it’s #adjective#! You can really tell that the producers work #adverb#. I bet they got their inspiration from that show about the #noun# that looks a lot like #name#. Anyway, I don’t think the show will make it will make it past #number# episodes, regardless of what the critics say.</item>
         <item>I am so tired! Last night I went to see that brand new #noun# at the museum. It was all going swimmingly, until the #noun# started to #verb#. #name# was doing it especially #adverb#. Pretty soon, everyone in the room, all #number# of us, began to #verb# too. It was honestly one of the most #adjective# experiences of my life. I don’t even remember leaving the museum. I woke up in #name#’s house this morning with a massive headache. How shocked I was when I saw the #noun# making us breakfast!</item>
         <item>Ever since I was #number# years old, I have always wanted to be able to #verb#. Back then, I remember #name# always telling me I’d never be able to do it. And yet, after years of practice, I can finally #verb#. Not only that, but the President gave me an award for how #adverb# I #verb#. Still, I have to use a #noun# to help me. I bet #name# is feeling pretty #adjective# now!</item>
     </string-array>
     <string name="surpriseMadLib"></string>
+    <string name="errorMessage">Please fill in all fields correctly.</string>
 </resources>

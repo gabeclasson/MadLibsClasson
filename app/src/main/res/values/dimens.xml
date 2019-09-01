@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="titleTextSize">30sp</dimen>
+    <dimen name="subtitleTextSize">26sp</dimen>
     <dimen name="textSize">22sp</dimen>
     <dimen name="textBoxHeight">45dp</dimen>
     <dimen name="textBoxWidth">212dp</dimen>
