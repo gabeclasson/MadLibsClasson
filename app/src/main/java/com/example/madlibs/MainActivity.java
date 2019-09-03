@@ -6,12 +6,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
+    private String[] madLibs;
+    private String[] titles;
+    private String[] madLibsSurprise;
+    private String[] titlesSurprise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +37,30 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+        //adapted from https://stackoverflow.com/questions/1337424/android-spinner-get-the-selected-item-change-event
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                if (position != titles.length)
+                    resetSpinnerAdapter();
+            }
+
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+        madLibs = getResources().getStringArray(R.array.madLibs);
+        titles = getResources().getStringArray(R.array.spinner_elements);
+        madLibsSurprise = new String[madLibs.length + 1];
+        int i;
+        for (i = 0; i < madLibs.length; i++)
+            madLibsSurprise[i] = madLibs[i];
+        madLibsSurprise[i] = getString(R.string.surpriseMadLib);
+        titlesSurprise = new String[titles.length + 1];
+        int j;
+        for (j = 0; j < titles.length; j++)
+            titlesSurprise[j] = titles[j];
+        titlesSurprise[j] = getString(R.string.surpriseTitle);
     }
 
     public void generate(View v) {
@@ -35,13 +70,15 @@ public class MainActivity extends AppCompatActivity {
         String number = ((EditText) findViewById(R.id.editNumber)).getText().toString().trim();
         String name = ((EditText) findViewById(R.id.editName)).getText().toString().trim();
         String verb = ((EditText) findViewById(R.id.editVerb)).getText().toString().trim();
-        String madLibTitle = ((Spinner) findViewById(R.id.spinnerSelector)).getSelectedItem().toString();
+        int madLibIndex = ((Spinner) findViewById(R.id.spinnerSelector)).getSelectedItemPosition();
         if (noun.matches(".*\\w+.*") && adjective.matches(".*\\w+.*") && adverb.matches(".*\\w+.*") && number.matches(".*\\w+.*") && name.matches(".*\\w+.*") && verb.matches(".*\\w+.*")){
-            String message = searchMadLibs(madLibTitle);
+            String message = madLibsSurprise[madLibIndex];
+            String title = titlesSurprise[madLibIndex];
             Intent intent = new Intent(this, MadLibDisplay.class);
             intent.putExtra(MadLibDisplay.MAD_LIB_TEXT, createMadLib(noun, adjective, adverb, number, name, verb, message));
-            intent.putExtra(MadLibDisplay.MAD_LIB_TITLE, madLibTitle);
+            intent.putExtra(MadLibDisplay.MAD_LIB_TITLE, title);
             startActivity(intent);
+            resetSpinnerAdapter();
         }
         else{
             Context context = getApplicationContext();
@@ -51,15 +88,44 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
         }
     }
-    private String searchMadLibs(String title){
-        String[] libs = getResources().getStringArray(R.array.madLibs);
-        String[] titles = getResources().getStringArray(R.array.spinner_elements);
-        for (int i = 0; i < titles.length; i++)
-            if (title.equals(titles[i]))
-                return libs[i];
-         return getString(R.string.surpriseMadLib);
-    }
+
     public String createMadLib(String noun, String adjective, String adverb, String number, String name, String verb, String rawMadLib){
         return rawMadLib.replace("#noun#", noun).replace("#adjective#", adjective).replace("#adverb#", adverb).replace("#number#", number).replace("#name#", name).replace("#verb#", verb);
+    }
+
+    public void surprise(View v) {
+        Spinner s = findViewById(R.id.spinnerSelector);
+        Animation rotate = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate);
+        int numItems = madLibsSurprise.length;
+        int choice = (int) (Math.random() * (numItems));
+        if (choice >= numItems - 1){
+            setSpinnerAdapter(titlesSurprise);
+            s.setSelection(choice);
+        }
+        else {
+            resetSpinnerAdapter();
+            s.setSelection(choice);
+        }
+        s.startAnimation(rotate);
+    }
+
+    public void resetSpinnerAdapter() {
+        Spinner spinner = (Spinner) findViewById(R.id.spinnerSelector);
+        if (spinner.getCount() > titles.length){
+            int spinnerSelection = spinner.getSelectedItemPosition();
+            if (spinnerSelection >= titles.length)
+                spinnerSelection = 0;
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_elements, android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+            spinner.setAdapter(adapter);
+            spinner.setSelection(spinnerSelection);
+        }
+    }
+
+    public void setSpinnerAdapter(String[] array){
+        Spinner spinner = (Spinner) findViewById(R.id.spinnerSelector);
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, array);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 }

@@ -9,4 +9,5 @@
     <dimen name="verticalSpacing">25dp</dimen>
     <dimen name="horizontalSpacing">36dp</dimen>
     <dimen name="buttonDistanceFromWall">50dp</dimen>
+    <dimen name="buttonWidth">120dp</dimen>
 </resources>

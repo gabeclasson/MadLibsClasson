@@ -148,13 +148,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/verticalSpacing"
         android:layout_marginEnd="0dp"
-        android:text="@string/app_name"
+        android:text="@string/app_name_display"
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="@dimen/titleTextSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textAdjective"
@@ -200,7 +201,8 @@
         android:layout_height="@dimen/textBoxHeight"
         android:layout_marginStart="@dimen/horizontalSpacing"
         app:layout_constraintStart_toEndOf="@+id/textSelector"
-        app:layout_constraintTop_toTopOf="@+id/textSelector" />
+        app:layout_constraintTop_toTopOf="@+id/textSelector"
+        android:background="@drawable/spinner_shape"/>
 
     <Button
         android:id="@+id/buttonGenerate"
@@ -208,6 +210,7 @@
         android:layout_height="@dimen/textBoxHeight"
         android:layout_marginStart="@dimen/buttonDistanceFromWall"
         android:layout_marginTop="@dimen/verticalSpacing"
+        android:background="@drawable/button_shape"
         android:onClick="generate"
         android:text="Generate"
         app:layout_constraintStart_toStartOf="parent"
@@ -218,6 +221,8 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/textBoxHeight"
         android:layout_marginEnd="@dimen/buttonDistanceFromWall"
+        android:background="@drawable/button_shape"
+        android:onClick="surprise"
         android:text="Surprise Me!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/buttonGenerate" />
