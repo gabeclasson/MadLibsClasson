@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         //adapted from https://stackoverflow.com/questions/1337424/android-spinner-get-the-selected-item-change-event
+        // listens for when the spinner updates
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 if (position != titles.length)
@@ -49,8 +50,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+        // arrays of madlib text and title
         madLibs = getResources().getStringArray(R.array.madLibs);
         titles = getResources().getStringArray(R.array.spinner_elements);
+        // these surprise arrays are to store the same contents of madLibs and titles with the surprise madlib put in at the end
         madLibsSurprise = new String[madLibs.length + 1];
         int i;
         for (i = 0; i < madLibs.length; i++)
@@ -63,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
         titlesSurprise[j] = getString(R.string.surpriseTitle);
     }
 
+    /**
+     * Generates a madlib based on user entered data. Opens a new activity.
+     * @param v
+     */
     public void generate(View v) {
         String noun = ((EditText) findViewById(R.id.editNoun)).getText().toString().trim();
         String adjective = ((EditText) findViewById(R.id.editAdjective)).getText().toString().trim();
@@ -89,27 +96,45 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Given user entered data a string containing the raw text of a madlib, returns a completed mad lib.
+     * @param noun
+     * @param adjective
+     * @param adverb
+     * @param number
+     * @param name
+     * @param verb
+     * @param rawMadLib The raw text of a madlib without any words substituted into it yet. The rawMadLib should use the following words in its text which will all be replaced by user entered data: #noun#, #adjective#, #adverb#, #number#, #name#, and #verb#.
+     * @return A completed mad lib mad using the information provided in the parameters
+     */
     public String createMadLib(String noun, String adjective, String adverb, String number, String name, String verb, String rawMadLib){
         return rawMadLib.replace("#noun#", noun).replace("#adjective#", adjective).replace("#adverb#", adverb).replace("#number#", number).replace("#name#", name).replace("#verb#", verb);
     }
 
+    /**
+     * Chooses a random madlib and updates the spinner to match. Has a probability of giving the surprise mad lib.
+     * @param v
+     */
     public void surprise(View v) {
         Spinner s = findViewById(R.id.spinnerSelector);
         Animation rotate = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate);
         int numItems = madLibsSurprise.length;
         int choice = (int) (Math.random() * (numItems));
-        if (choice >= numItems - 1){
-            setSpinnerAdapter(titlesSurprise);
+        if (choice >= numItems - 1){ // if the surprise mad lib was selected
+            setSpinnerAdapter(titlesSurprise); // to add another option to the spinner, we need to use a different spinner adapter
             s.setSelection(choice);
         }
         else {
-            resetSpinnerAdapter();
+            resetSpinnerAdapter(); // if you generate a mad lib, the surprise option will disappear
             s.setSelection(choice);
         }
         s.startAnimation(rotate);
     }
 
-    public void resetSpinnerAdapter() {
+    /**
+     * Resets the spinner adapter so that the surprise option is no longer visible
+     */
+    private void resetSpinnerAdapter() {
         Spinner spinner = (Spinner) findViewById(R.id.spinnerSelector);
         if (spinner.getCount() > titles.length){
             int spinnerSelection = spinner.getSelectedItemPosition();
@@ -122,7 +147,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void setSpinnerAdapter(String[] array){
+    /**
+     * Sets the spinner adapter for the selection of the mad lib to match a String[]
+     * @param array an array of strings to be used for the spinner adapter for the selection of the mad lib.
+     */
+    private void setSpinnerAdapter(String[] array){
         Spinner spinner = (Spinner) findViewById(R.id.spinnerSelector);
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, array);
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);

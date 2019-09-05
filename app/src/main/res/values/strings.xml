@@ -23,4 +23,5 @@
     <string name="surpriseTitle">Surprise</string>
     <string name="surpriseMadLib">My favorite memory was the day I turned #number#. It was my birthday party, and #name# was the only one there. At first I was taking it #adverb# because I thought #name# was pretty #adjective#, but then I realized that we could do something. I threw down my birthday cake and together me and #name# began to #verb#. Eventually, we found that it was a lot more fun to use a #noun#. To #verb# is truly to live.</string>
     <string name="errorMessage">Please fill in all fields correctly.</string>
+    <string name="chooser">Share mad lib</string>
 </resources>
