@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(MadLibDisplay.MAD_LIB_TEXT, createMadLib(noun, adjective, adverb, number, name, verb, message));
             intent.putExtra(MadLibDisplay.MAD_LIB_TITLE, title);
             startActivity(intent);
-            resetSpinnerAdapter();
+            resetSpinnerAdapter(); 
         }
         else{
             Context context = getApplicationContext();
